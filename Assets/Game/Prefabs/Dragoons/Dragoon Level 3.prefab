@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: ed4b157eb5876234b8ede27507ee29d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4e0fd2830bb7d11428959260e947f155, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -167,6 +167,8 @@ MonoBehaviour:
   isPopping: 0
   isTouched: 0
   isRat: 0
+  isExplosive: 0
+  isRosebud: 0
 --- !u!95 &1978673852032371192
 Animator:
   serializedVersion: 5
