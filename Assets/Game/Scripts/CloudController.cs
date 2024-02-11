@@ -51,6 +51,8 @@ public class CloudController : MonoBehaviour
             newFruit.GetComponent<CircleCollider2D>().enabled = false;
         if(newFruit.GetComponent<CapsuleCollider2D>() != null)
             newFruit.GetComponent<CapsuleCollider2D>().enabled = false;
+        if(newFruit.GetComponent<PolygonCollider2D>() != null)
+            newFruit.GetComponent<PolygonCollider2D>().enabled = false;
         newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
         equippedFruit = newFruit;
         fruitManager.CheckRatEquipped();
@@ -65,6 +67,9 @@ public class CloudController : MonoBehaviour
         
         if(equippedNextNextFruit.GetComponent<CapsuleCollider2D>() != null)
             equippedNextNextFruit.GetComponent<CapsuleCollider2D>().enabled = false;
+        
+        if(equippedNextNextFruit.GetComponent<PolygonCollider2D>() != null)
+            equippedNextNextFruit.GetComponent<PolygonCollider2D>().enabled = false;
         
     }
 

@@ -2717,22 +2717,22 @@ MonoBehaviour:
   audioSource: {fileID: 1657213416}
   ratAudioSource: {fileID: 1067211051}
   ratFruit: {fileID: 78220219139644148, guid: 815e87943941f774e87fefd679b3fdaa, type: 3}
-  ratChance: 5
+  ratChance: 0
   pomuAudioSource: {fileID: 441295221}
   pomuFruit: {fileID: 78220219139644148, guid: 6affee0707a88254d811b80bc3ea750e, type: 3}
-  pomuChance: 5
+  pomuChance: 0
   buildNumberText: {fileID: 886790313}
   explosionFruit: {fileID: 78220219139644148, guid: 78f652652024dd84b9bc58cf47a272e2, type: 3}
-  explosionChance: 5
+  explosionChance: 0
   explosionSource: {fileID: 489368330}
   explosion: {fileID: 2053978647959197256, guid: 91b114b20c550ca4683b9c8eb6f89875, type: 3}
   explosionPower: 1000
   rosebudAudioSource: {fileID: 1113130154}
   rosebudFruit: {fileID: 78220219139644148, guid: f96b5b9f8295cfd409ff7fdbbbcf5aa2, type: 3}
-  rosebudChance: 5
+  rosebudChance: 0
   pentomoAudioSource: {fileID: 711285010}
   pentomoFruit: {fileID: 78220219139644148, guid: cf9741b8450af3349a10587bee808f5b, type: 3}
-  pentomoChance: 5
+  pentomoChance: 0
   ididitAudioSource: {fileID: 1823602090}
   totalScore: 1
   isFailed: 0

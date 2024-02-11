@@ -15,19 +15,19 @@ public class FruitManager : MonoBehaviour
     [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
+    private TMP_Text buildNumberText;
+    [SerializeField, Header("Pomu")]
     private AudioSource ratAudioSource;
     [SerializeField]
     private GameObject ratFruit;
     [SerializeField]
     private float ratChance = 5f;
-    [SerializeField]
+    [SerializeField, Header("Pomu")]
     private AudioSource pomuAudioSource;
     [SerializeField]
     private GameObject pomuFruit;
     [SerializeField]
     private float pomuChance = 5f;
-    [SerializeField]
-    private TMP_Text buildNumberText;
     [SerializeField, Header("Grenade")]
     private GameObject explosionFruit;
     [SerializeField]
@@ -231,6 +231,8 @@ public class FruitManager : MonoBehaviour
 
         var newFruit = Instantiate(spawningFruit, fruitRoot);
         newFruit.transform.position = Vector3.Lerp(fruit1.transform.position, fruit2.transform.position, 0.5f);
+        newFruit.transform.rotation = Quaternion.Lerp(fruit1.transform.rotation, fruit2.transform.rotation, 0.5f);
+        
         newFruit.GetComponent<Fruit>().manager = this;
     }
 
