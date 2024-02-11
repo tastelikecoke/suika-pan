@@ -2715,13 +2715,13 @@ MonoBehaviour:
   fruitRoot: {fileID: 323314689}
   retryMenu: {fileID: 1011120906}
   audioSource: {fileID: 1657213416}
+  buildNumberText: {fileID: 886790313}
   ratAudioSource: {fileID: 1067211051}
   ratFruit: {fileID: 78220219139644148, guid: 815e87943941f774e87fefd679b3fdaa, type: 3}
   ratChance: 0
   pomuAudioSource: {fileID: 441295221}
   pomuFruit: {fileID: 78220219139644148, guid: 6affee0707a88254d811b80bc3ea750e, type: 3}
   pomuChance: 0
-  buildNumberText: {fileID: 886790313}
   explosionFruit: {fileID: 78220219139644148, guid: 78f652652024dd84b9bc58cf47a272e2, type: 3}
   explosionChance: 0
   explosionSource: {fileID: 489368330}
@@ -21331,7 +21331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 968063054924622305, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 397.78
+      value: 462.46
       objectReference: {fileID: 0}
     - target: {fileID: 968063054924622305, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_SizeDelta.y
@@ -21367,11 +21367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 968063054924622305, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 27.109863
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 968063054924622305, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -190.3599
+      value: -190.35986
       objectReference: {fileID: 0}
     - target: {fileID: 968063054924622305, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21441,18 +21441,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1708249673729098708, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 198.89012
-      objectReference: {fileID: 0}
-    - target: {fileID: 1708249673729098708, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 58.522224
-      objectReference: {fileID: 0}
-    - target: {fileID: 2865699506336808160, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 98.1499
-      objectReference: {fileID: 0}
     - target: {fileID: 3294099419704306091, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -21468,14 +21456,6 @@ PrefabInstance:
     - target: {fileID: 3294099419704306091, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414963929678073043, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -76.84633
-      objectReference: {fileID: 0}
-    - target: {fileID: 3414963929678073043, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 16.044922
       objectReference: {fileID: 0}
     - target: {fileID: 3759926706910211053, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchorMax.y
@@ -21512,14 +21492,6 @@ PrefabInstance:
     - target: {fileID: 4645080053738768110, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4878671262448436511, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 198.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 5298551646956714440, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 30.870117
       objectReference: {fileID: 0}
     - target: {fileID: 6536928816669611427, guid: 95d27e19ac87d324a9de2584137a6ece, type: 3}
       propertyPath: m_AnchorMax.y
