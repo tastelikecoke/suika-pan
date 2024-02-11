@@ -21,18 +21,22 @@ public class Fruit : MonoBehaviour
             animator.enabled = false;
         }
     }
-    
+
     private void OnCollisionEnter2D(Collision2D col)
+    {
+        OnCollide(col.gameObject);
+    }
+    private void OnCollide(GameObject otherObject)
     {
         // do not execute if on retry.
         if (manager.isFailed) return;
         
         
         if (isPopping) return;
-        var contactFruit = col.gameObject.GetComponent<Fruit>();
+        var contactFruit = otherObject.GetComponent<Fruit>();
         if (contactFruit == null)
         {
-            if (col.gameObject.name == "Floor")
+            if (otherObject.name == "Floor")
             {
                 if (!isTouched && isExplosive)
                     StartCoroutine(Explode());
@@ -67,7 +71,13 @@ public class Fruit : MonoBehaviour
         if (!manager)
             return;
         if (col.gameObject.name == "Death")
+        {
             manager.Fail();
+        }
+        else
+        {
+            OnCollide(col.gameObject);
+        }
     }
     
     public void Fail()
