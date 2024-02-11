@@ -76,6 +76,8 @@ public class Fruit : MonoBehaviour
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
         if(gameObject.GetComponent<PolygonCollider2D>() != null)
             gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        if(gameObject.GetComponent<CapsuleCollider2D>() != null)
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         var animator = GetComponent<Animator>();
         if (animator)
@@ -93,6 +95,8 @@ public class Fruit : MonoBehaviour
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
         if(gameObject.GetComponent<PolygonCollider2D>() != null)
             gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        if(gameObject.GetComponent<CapsuleCollider2D>() != null)
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         var animator = GetComponent<Animator>();
         if (animator)

@@ -47,7 +47,10 @@ public class CloudController : MonoBehaviour
     {
         var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitContainer);
         newFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-        newFruit.GetComponent<CircleCollider2D>().enabled = false;
+        if(newFruit.GetComponent<CircleCollider2D>() != null)
+            newFruit.GetComponent<CircleCollider2D>().enabled = false;
+        if(newFruit.GetComponent<CapsuleCollider2D>() != null)
+            newFruit.GetComponent<CapsuleCollider2D>().enabled = false;
         newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
         equippedFruit = newFruit;
         fruitManager.CheckRatEquipped();
@@ -56,7 +59,12 @@ public class CloudController : MonoBehaviour
         
         equippedNextNextFruit = Instantiate(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
         equippedNextNextFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-        equippedNextNextFruit.GetComponent<CircleCollider2D>().enabled = false;
+        
+        if(equippedNextNextFruit.GetComponent<CircleCollider2D>() != null)
+            equippedNextNextFruit.GetComponent<CircleCollider2D>().enabled = false;
+        
+        if(equippedNextNextFruit.GetComponent<CapsuleCollider2D>() != null)
+            equippedNextNextFruit.GetComponent<CapsuleCollider2D>().enabled = false;
         
     }
 
