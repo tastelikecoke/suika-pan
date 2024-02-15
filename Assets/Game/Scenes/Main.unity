@@ -206,6 +206,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 931806873}
     m_Modifications:
+    - target: {fileID: 1352217334747575786, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 13.294029
+      objectReference: {fileID: 0}
     - target: {fileID: 1378684440782773455, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -236,7 +240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1378684440782773455, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 119.45
+      value: 99.5
       objectReference: {fileID: 0}
     - target: {fileID: 1378684440782773455, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -289,6 +293,18 @@ PrefabInstance:
     - target: {fileID: 6300401044661871112, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
       propertyPath: m_Name
       value: Global Board Rank
+      objectReference: {fileID: 0}
+    - target: {fileID: 6589838194218049148, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 88.45999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099202957789449248, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 13.299995
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765787622886589919, guid: 6c878ec081bd41144b4f02275a83d25d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -18.599998
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13132,7 +13148,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -38.4, y: 47.93}
+  m_AnchoredPosition: {x: -0.0000076294, y: 82}
   m_SizeDelta: {x: 342.56, y: 43.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1663452092
@@ -13164,8 +13180,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4292127464
-  m_fontColor: {r: 0.909804, g: 0.6666667, b: 0.8313726, a: 1}
+    rgba: 4285099952
+  m_fontColor: {r: 0.6901961, g: 0.43529412, b: 0.4117647, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -13347,8 +13363,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 402}
-  m_SizeDelta: {x: 498, y: 139}
+  m_AnchoredPosition: {x: 0.000012398, y: 385}
+  m_SizeDelta: {x: 399.82, y: 139}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1685742274
 MonoBehaviour:
@@ -13370,8 +13386,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5cec7bd4c3c0af3429bfb4b0746e2e2f, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 6f6b5a8a098194147a28b11fd859ce90, type: 3}
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -13444,7 +13460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.75, y: -23.939972}
+  m_AnchoredPosition: {x: -0.000011444, y: -0.0000095367}
   m_SizeDelta: {x: 293.77, y: 91.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692550756
@@ -13469,15 +13485,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c7ce4fb7b3cba4b4baf08036f3806504, type: 2}
-  m_sharedMaterial: {fileID: 6862948086684694721, guid: c7ce4fb7b3cba4b4baf08036f3806504, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a11e4943a2810004ab918c2fb16fba9d, type: 2}
+  m_sharedMaterial: {fileID: 6862948086684694721, guid: a11e4943a2810004ab918c2fb16fba9d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284884358
-  m_fontColor: {r: 0.5254902, g: 0.14509805, b: 0.40000004, a: 1}
+    rgba: 4287084785
+  m_fontColor: {r: 0.9450981, g: 0.72156864, b: 0.5294118, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
