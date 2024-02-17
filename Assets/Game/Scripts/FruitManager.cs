@@ -57,7 +57,7 @@ public class FruitManager : MonoBehaviour
     
     private GameObject nextFruit;
     private GameObject nextNextFruit;
-    
+
     public bool isFailed = false;
     public bool dontFallFirst = false;
     public bool isUploadedAlready = false;
@@ -182,6 +182,7 @@ public class FruitManager : MonoBehaviour
 
     public IEnumerator GenerateFruitCR(Fruit fruit1, Fruit fruit2)
     {
+        if (isFailed) yield break;
         if (fruit1.level != fruit2.level) yield break;
         if (fruitList.Length <= fruit1.level) yield break;
         
@@ -242,6 +243,8 @@ public class FruitManager : MonoBehaviour
     }
     public IEnumerator FailCR()
     {
+        if (isFailed)
+            yield break;
         isFailed = true;
         var isHighScore = GameSystem.Instance.GetLocalRank(totalScore) == 1;
 
