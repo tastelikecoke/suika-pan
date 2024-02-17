@@ -3055,7 +3055,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pan Maker
+  m_text: Pan Machine
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6f1d1925596657442a33023dab161663, type: 2}
   m_sharedMaterial: {fileID: 5493371740290692762, guid: 6f1d1925596657442a33023dab161663, type: 2}
