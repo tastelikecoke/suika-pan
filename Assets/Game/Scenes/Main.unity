@@ -4696,7 +4696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databaseName: dragoon-drop-default-rtdb
-  rootNode: production/scores
+  rootNode: pan-production/scores
   ScoreEntries: []
 --- !u!1 &579146048
 GameObject:
