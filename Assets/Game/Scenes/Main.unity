@@ -4696,7 +4696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   databaseName: dragoon-drop-default-rtdb
-  rootNode: pan-production/scores
+  rootNode: pan-staging/scores
   ScoreEntries: []
 --- !u!1 &579146048
 GameObject:
@@ -6284,8 +6284,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 542.35, y: 174.36}
-  m_SizeDelta: {x: 418.71, y: 43.14}
+  m_AnchoredPosition: {x: 526.21, y: 174.36}
+  m_SizeDelta: {x: 304.4, y: 43.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &843335042
 MonoBehaviour:
@@ -11459,8 +11459,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 542.35, y: 175}
-  m_SizeDelta: {x: 418.71, y: 43.14}
+  m_AnchoredPosition: {x: 526.3704, y: 175}
+  m_SizeDelta: {x: 310.24, y: 43.14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1459364745
 MonoBehaviour:
