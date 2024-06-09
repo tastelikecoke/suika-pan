@@ -10,18 +10,23 @@ namespace tastelikecoke.PanMachine
     /// </summary>
     public class PauseMenu : MonoBehaviour
     {
+        /// <summary>
+        /// Show the pause menu over the game
+        /// </summary>
         public void Show()
         {
-            /// transition
             this.GetComponent<Canvas>().enabled = true;
             foreach (var selectable in GetComponentsInChildren<Selectable>())
             {
                 selectable.interactable = true;
             }
         }
+        
+        /// <summary>
+        /// Hide the pause menu, back to the game
+        /// </summary>
         public void Hide()
         {
-            /// transition
             this.GetComponent<Canvas>().enabled = false;
             foreach (var selectable in GetComponentsInChildren<Selectable>())
             {

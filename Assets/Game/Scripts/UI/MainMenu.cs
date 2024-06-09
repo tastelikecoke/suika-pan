@@ -10,6 +10,9 @@ namespace tastelikecoke.PanMachine
     /// </summary>
     public class MainMenu : MonoBehaviour
     {
+        /// <summary>
+        /// Show the main game scene next
+        /// </summary>
         public void StartGame()
         {
             SceneManager.LoadScene("Main");

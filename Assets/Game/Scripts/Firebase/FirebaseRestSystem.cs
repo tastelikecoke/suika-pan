@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using FirebaseREST;
 using Proyecto26;
-using TMPro;
 using UnityEngine;
 
 namespace tastelikecoke.PanMachine

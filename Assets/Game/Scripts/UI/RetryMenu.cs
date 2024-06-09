@@ -23,9 +23,13 @@ namespace tastelikecoke.PanMachine
         private UploadScoreMenu uploadScoreMenu;
         [SerializeField]
         private AudioSource tada;
+        
+        
+        /// <summary>
+        /// Hide the retry menu
+        /// </summary>
         public void PressRetry()
         {
-            /// transition
             this.GetComponent<Canvas>().enabled = false;
             foreach (var selectable in GetComponentsInChildren<Selectable>())
             {
@@ -43,9 +47,11 @@ namespace tastelikecoke.PanMachine
             uploadScoreMenu.Show();
         }
 
+        /// <summary>
+        /// Show the retry menu
+        /// </summary>
         public void Show(bool isHighScore = false)
         {
-            /// transition
             this.GetComponent<Canvas>().enabled = true;
             foreach (var selectable in GetComponentsInChildren<Selectable>())
             {

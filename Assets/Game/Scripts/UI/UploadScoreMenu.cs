@@ -20,6 +20,9 @@ namespace tastelikecoke.PanMachine
         [SerializeField, TextArea]
         private string badWords;
 
+        /// <summary>
+        /// Detect bad words on the score upload and prevent them
+        /// </summary>
         public bool IsBadWord(string word)
         {
             if (word.Length < 2) return true;
@@ -66,18 +69,24 @@ namespace tastelikecoke.PanMachine
                 });
             }
         }
+        
+        /// <summary>
+        /// transition back to Retry menu
+        /// </summary>
         public void PressSkip()
         {
-            /// transition
             this.GetComponent<Canvas>().enabled = false;
             foreach (var selectable in GetComponentsInChildren<Selectable>())
             {
                 selectable.interactable = false;
             }
         }
+        
+        /// <summary>
+        /// transition to Upload score menu
+        /// </summary>
         public void Show()
         {
-            /// transition
             this.GetComponent<Canvas>().enabled = true;
             foreach (var selectable in GetComponentsInChildren<Selectable>())
             {
