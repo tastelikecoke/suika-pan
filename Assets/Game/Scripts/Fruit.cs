@@ -185,7 +185,7 @@ namespace tastelikecoke.PanMachine
             isHidden = true;
         }
         
-        public void Reset()
+        public void ResetValues(Transform parentTransform)
         {
             isHidden = false;
             gameObject.SetActive(true);
@@ -200,11 +200,17 @@ namespace tastelikecoke.PanMachine
                 if (_colliders[i] != null)
                     _colliders[i].enabled = _initialColliderStates[i];
             }
+            
             _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             _rigidbody.velocity = Vector3.zero;
             transform.rotation = _initialRotation;
             isPopping = false;
             isTouched = false;
+            
+            transform.SetParent(parentTransform);
+            transform.position = parentTransform.position;
+            transform.localScale = parentTransform.localScale;
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 }

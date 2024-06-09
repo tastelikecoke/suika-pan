@@ -7,9 +7,6 @@ namespace tastelikecoke.PanMachine
     public class FruitPool : MonoBehaviour
     {
         [SerializeField]
-        private Transform _fruitRoot;
-
-        [SerializeField]
         private Dictionary<string, List<Fruit>> fruitPool;
 
         public void ResetAll()
@@ -43,16 +40,11 @@ namespace tastelikecoke.PanMachine
             {
                 if (fruitPoolList[i].isHidden)
                 {
-                    fruitPoolList[i].Reset();
-                    fruitPoolList[i].transform.SetParent(fruitRoot);
-                    fruitPoolList[i].transform.position = fruitRoot.transform.position;
-                    fruitPoolList[i].transform.localScale = fruitRoot.transform.localScale;
-                    fruitPoolList[i].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                    fruitPoolList[i].ResetValues(fruitRoot);
                     return fruitPoolList[i].gameObject;
                 }
             }
             
-
             var newFruit = Instantiate(fruitObject, fruitRoot);
             var newFruitScript = newFruit.GetComponent<Fruit>();
             newFruitScript.pool = this;
@@ -61,7 +53,6 @@ namespace tastelikecoke.PanMachine
             if (newFruitScript != null)
                 fruitPoolList.Add(newFruit.GetComponent<Fruit>());
 
-            Debug.Log($"New Item{newFruitScript.fruitID}");
             return newFruit;
         }
     }
