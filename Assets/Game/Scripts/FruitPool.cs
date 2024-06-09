@@ -43,10 +43,9 @@ namespace tastelikecoke.PanMachine
             {
                 if (fruitPoolList[i].isHidden)
                 {
+                    fruitPoolList[i].Reset();
                     fruitPoolList[i].transform.SetParent(fruitRoot);
                     fruitPoolList[i].transform.position = fruitRoot.transform.position;
-                    fruitPoolList[i].transform.localScale = Vector3.one;
-                    fruitPoolList[i].Reset();
                     return fruitPoolList[i].gameObject;
                 }
             }

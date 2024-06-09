@@ -105,7 +105,7 @@ namespace tastelikecoke.PanMachine
             
             if (fruitManager.dontFallFirst) return;
 
-            if (_equippedFruit == null || _equippedFruit.GetComponent<Fruit>().isTouched)
+            if (_equippedFruit == null || _equippedFruit.GetComponent<Fruit>().isTouched || _equippedFruit.GetComponent<Fruit>().isHidden)
             {
                 EquipNextFruit();
             }

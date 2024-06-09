@@ -80,7 +80,7 @@ namespace tastelikecoke.PanMachine
                 if (otherObject.name == "Floor")
                 {
                     if (!isTouched && isExplosive)
-                        StartCoroutine(Explode());
+                        manager.StartCoroutine(Explode());
                     isTouched = true;
                 }
 
@@ -89,7 +89,7 @@ namespace tastelikecoke.PanMachine
             else
             {
                 if (!isTouched && isExplosive)
-                    StartCoroutine(Explode());
+                    manager.StartCoroutine(Explode());
                 isTouched = true;
             }
 
@@ -198,6 +198,7 @@ namespace tastelikecoke.PanMachine
             }
             _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             _rigidbody.velocity = Vector3.zero;
+            transform.rotation = _initialRotation;
             isPopping = false;
             isTouched = false;
         }
