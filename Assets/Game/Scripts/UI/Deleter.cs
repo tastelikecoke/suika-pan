@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script for delete local save file button
+/// </summary>
 public class Deleter : MonoBehaviour
 {
     public void OnPress()
     {
-        PlayerPrefs.DeleteKey("dragoon_drop_save_file_for_local_ranking");
+        PlayerPrefs.DeleteKey(GameSystem.SaveFileForLocalRankingKey);
         PlayerPrefs.Save();
         
         if(GameSystem.Instance)

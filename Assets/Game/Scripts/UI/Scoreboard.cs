@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script for any Local scoreboards
+/// </summary>
 public class Scoreboard : MonoBehaviour
 {
     [SerializeField]

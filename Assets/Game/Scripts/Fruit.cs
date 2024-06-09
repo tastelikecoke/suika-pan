@@ -1,8 +1,9 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script to manage fruit physics and specific fruit behavior
+/// </summary>
 public class Fruit : MonoBehaviour
 {
     public FruitManager manager;

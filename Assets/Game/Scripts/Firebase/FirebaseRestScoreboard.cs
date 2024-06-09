@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script for global scoreboards
+/// </summary>
 public class FirebaseRestScoreboard : MonoBehaviour
 {
     [SerializeField]

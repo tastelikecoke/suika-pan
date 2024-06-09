@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// For UI of Retry menu
+/// </summary>
 public class RetryMenu : MonoBehaviour
 {
     [SerializeField]

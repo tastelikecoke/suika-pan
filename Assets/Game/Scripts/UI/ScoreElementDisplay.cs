@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Display script for all score rows
+/// </summary>
 public class ScoreElementDisplay : MonoBehaviour
 {
     [SerializeField]

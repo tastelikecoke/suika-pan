@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Tracks score updates
+/// </summary>
 public class ScoreDisplay : MonoBehaviour
 {
     [SerializeField]

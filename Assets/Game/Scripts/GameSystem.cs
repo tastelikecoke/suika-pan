@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -13,7 +12,7 @@ public class GameSystem : MonoBehaviour
     public AudioSource bgm;
 
     /// <summary> original name is from Dragoon Drop release </summary>
-    private const string KEY_SAVE_FILE_FOR_LOCAL_RANKING = "dragoon_drop_save_file_for_local_ranking";
+    public const string SaveFileForLocalRankingKey = "dragoon_drop_save_file_for_local_ranking";
     
     public static GameSystem Instance = null;
     
@@ -26,7 +25,7 @@ public class GameSystem : MonoBehaviour
         }
 
         Instance = this;
-        string storedScores = PlayerPrefs.GetString(KEY_SAVE_FILE_FOR_LOCAL_RANKING, null);
+        string storedScores = PlayerPrefs.GetString(SaveFileForLocalRankingKey, null);
         localScores = new List<int>();
         if (!string.IsNullOrEmpty(storedScores))
         {
@@ -56,7 +55,7 @@ public class GameSystem : MonoBehaviour
             else storedScore = storedScore + " " + scoreInt.ToString();
         }
 
-        PlayerPrefs.SetString(KEY_SAVE_FILE_FOR_LOCAL_RANKING, storedScore);
+        PlayerPrefs.SetString(SaveFileForLocalRankingKey, storedScore);
         PlayerPrefs.Save();
     }
 

@@ -35,10 +35,7 @@ public class FirebaseRestSystem : MonoBehaviour
     private string rootNode;
 
     public List<ScoreEntry> ScoreEntries;
-    private void Start()
-    {
-    }
-    
+
     public struct DatabaseResponse<T>
     {
         public bool isError;

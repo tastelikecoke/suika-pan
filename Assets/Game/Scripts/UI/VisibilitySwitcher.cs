@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Hides or shows local scoreboard and global scoreboard via opacity
+/// </summary>
 public class VisibilitySwitcher : MonoBehaviour
 {
     [SerializeField]
