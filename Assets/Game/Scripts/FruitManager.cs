@@ -18,12 +18,16 @@ namespace tastelikecoke.PanMachine
         [SerializeField]
         private Transform fruitRoot;
         [SerializeField]
+        public FruitPool fruitPool;
+        [SerializeField]
         public RetryMenu retryMenu;
         [SerializeField]
         private AudioSource audioSource;
         [SerializeField]
         private TMP_Text buildNumberText;
 
+        #region Special Fruit Variables
+        
         [Header("Rat")] [Tooltip("Chance of spawning a fruit that doesn't fuse unless it's a rat")]
         [SerializeField]
         private float ratChance = 5f;
@@ -67,6 +71,8 @@ namespace tastelikecoke.PanMachine
         private GameObject pentomoFruit;
         [SerializeField]
         private float pentomoChance = 5f;
+        
+        #endregion
 
         [Header("I did it")] [Tooltip("Sound when final fruit is created")]
         [SerializeField]
@@ -98,13 +104,7 @@ namespace tastelikecoke.PanMachine
             dontFallFirst = true;
             isFailed = false;
 
-            if (fruitRoot.childCount > 0)
-            {
-                foreach (Transform child in fruitRoot.transform)
-                {
-                    Destroy(child.gameObject);
-                }
-            }
+            fruitPool.ResetAll();
 
             StartCoroutine(WaitTilStartCR());
         }
@@ -254,7 +254,7 @@ namespace tastelikecoke.PanMachine
                 ididitAudioSource.Play();
             }
 
-            var newFruit = Instantiate(spawningFruit, fruitRoot);
+            var newFruit = fruitPool.GetObject(spawningFruit, fruitRoot);
             newFruit.transform.position = Vector3.Lerp(fruit1.transform.position, fruit2.transform.position, 0.5f);
             newFruit.transform.rotation = Quaternion.Lerp(fruit1.transform.rotation, fruit2.transform.rotation, 0.5f);
 

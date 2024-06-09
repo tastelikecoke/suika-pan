@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,17 +12,27 @@ namespace tastelikecoke.PanMachine
         public FruitManager manager;
 
         [Header("Fruit Settings")]
+        public string fruitID = "";
         public int level = 0;
         public bool isPopping = false;
         public bool isTouched = true;
         public bool isRat = false;
         public bool isExplosive = false;
         public bool isRosebud = false;
+        
+        [NonSerialized]
+        public bool isHidden = false;
+        [NonSerialized]
+        public FruitPool pool;
 
         
         private Animator _animator;
         private Rigidbody2D _rigidbody;
         private Collider2D[] _colliders;
+
+        private Quaternion _initialRotation;
+        private bool[] _initialColliderStates;
+        private RigidbodyType2D _bodyType;
         
         private void Awake()
         {
@@ -37,6 +48,17 @@ namespace tastelikecoke.PanMachine
             _colliders[0] = GetComponent<CircleCollider2D>();
             _colliders[1] = GetComponent<PolygonCollider2D>();
             _colliders[2] = GetComponent<CapsuleCollider2D>();
+
+            _initialRotation = transform.rotation;
+            _initialColliderStates = new bool[3];
+            for (int i = 0; i < 3; i++)
+            {
+                if (_colliders[i] != null)
+                    _initialColliderStates[i] = _colliders[i].enabled;
+            }
+
+            _bodyType = _rigidbody.bodyType;
+            isHidden = false;
         }
 
         private void OnCollisionEnter2D(Collision2D col)
@@ -127,6 +149,7 @@ namespace tastelikecoke.PanMachine
         
         public IEnumerator Pop()
         {
+            yield return null;
             SetColliders(false);
             _rigidbody.bodyType = RigidbodyType2D.Static;
             if (_animator)
@@ -138,7 +161,7 @@ namespace tastelikecoke.PanMachine
             /* wait for the pop animation */
             yield return new WaitForSeconds(1f / 12f);
 
-            Destroy(gameObject);
+            Hide();
         }
 
         public IEnumerator Explode()
@@ -152,6 +175,28 @@ namespace tastelikecoke.PanMachine
             yield return new WaitForSeconds(2f);
             manager.GenerateExplosion(this);
             yield return Pop();
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+            transform.SetParent(pool.transform);
+            isHidden = true;
+        }
+        
+        public void Reset()
+        {
+            gameObject.SetActive(true);
+            isHidden = false;
+            _animator.SetTrigger("Reset");
+            
+            for (int i = 0; i < 3; i++)
+            {
+                if (_colliders[i] != null)
+                    _colliders[i].enabled = _initialColliderStates[i];
+            }
+            _rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            _rigidbody.velocity = Vector3.zero;
         }
     }
 }

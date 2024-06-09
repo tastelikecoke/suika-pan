@@ -533,7 +533,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.010009766, y: -510.49997}
+  m_AnchoredPosition: {x: 0.010009766, y: -510.5}
   m_SizeDelta: {x: 595.98, y: -1021}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &35765280
@@ -2265,7 +2265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -661.99994, y: 0}
+  m_AnchoredPosition: {x: -662, y: 0}
   m_SizeDelta: {x: -1324.0001, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228614684
@@ -2686,6 +2686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 323314689}
   - component: {fileID: 323314690}
+  - component: {fileID: 323314691}
   m_Layer: 0
   m_Name: Fruit Root
   m_TagString: Untagged
@@ -2733,6 +2734,7 @@ MonoBehaviour:
   - {fileID: 78220219139644148, guid: eb97539ed3b32f240b691f1a8f0df79a, type: 3}
   - {fileID: 78220219139644148, guid: 80359629277665f4bb9826ab1e7fec79, type: 3}
   fruitRoot: {fileID: 323314689}
+  fruitPool: {fileID: 323314691}
   retryMenu: {fileID: 1011120906}
   audioSource: {fileID: 1657213416}
   buildNumberText: {fileID: 886790313}
@@ -2759,6 +2761,19 @@ MonoBehaviour:
   dontFallFirst: 0
   isUploadedAlready: 0
   screenshot: {fileID: 0}
+--- !u!114 &323314691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323314688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8b35280bf5bc746a7ec6fafc0cf4e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fruitRoot: {fileID: 323314689}
 --- !u!1 &324216920
 GameObject:
   m_ObjectHideFlags: 0
@@ -8211,6 +8226,7 @@ MonoBehaviour:
   constrainedFruit: {fileID: 1019948320}
   nextNextFruitRoot: {fileID: 925935418}
   fruitManager: {fileID: 323314690}
+  fruitPool: {fileID: 323314691}
   tilt: {x: 0, y: 0, z: 25}
   forceMultiplier: 200
   isDebugOn: 0
@@ -9755,7 +9771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 302.50024, y: 133}
+  m_AnchoredPosition: {x: 302.5002, y: 133}
   m_SizeDelta: {x: 190.44, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1215386272

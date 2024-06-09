@@ -20,6 +20,8 @@ namespace tastelikecoke.PanMachine
         private Transform nextNextFruitRoot;
         [SerializeField]
         private FruitManager fruitManager;
+        [SerializeField]
+        private FruitPool fruitPool;
 
         [Header("Physics Settings")]
         [SerializeField]
@@ -53,7 +55,7 @@ namespace tastelikecoke.PanMachine
         }
         private void EquipNextFruit()
         {
-            var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitContainer);
+            var newFruit = fruitPool.GetObject(fruitManager.GetNextFruit(), fruitContainer);
 
             var newFruitScript = newFruit.GetComponent<Fruit>();
             newFruitScript.SetAsNonMoving();
@@ -62,9 +64,10 @@ namespace tastelikecoke.PanMachine
             _equippedFruit = newFruit;
             fruitManager.CheckRatEquipped();
 
-            Destroy(_equippedNextNextFruit);
+            if(_equippedNextNextFruit != null)
+                _equippedNextNextFruit.GetComponent<Fruit>().Hide();
 
-            _equippedNextNextFruit = Instantiate(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
+            _equippedNextNextFruit = fruitPool.GetObject(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
             
             var equippedNextNextFruitScript = _equippedNextNextFruit.GetComponent<Fruit>();
             equippedNextNextFruitScript.SetAsNonMoving();
@@ -119,9 +122,9 @@ namespace tastelikecoke.PanMachine
             if (fireInput && fruitContainer.childCount > 0)
             {
                 var equippedRotation = _equippedFruit.transform.rotation;
-                Destroy(_equippedFruit);
+                _equippedFruit.GetComponent<Fruit>().Hide();
 
-                var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitRoot);
+                var newFruit = fruitPool.GetObject(fruitManager.GetNextFruit(), fruitRoot);
                 /* add jitter */
                 newFruit.transform.position = constrainedFruit.position + (Vector3)(Random.insideUnitCircle * 0.01f);
                 newFruit.transform.rotation = equippedRotation;
