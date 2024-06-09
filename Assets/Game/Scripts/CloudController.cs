@@ -7,8 +7,7 @@ using Random = UnityEngine.Random;
 
 public class CloudController : MonoBehaviour
 {
-    [SerializeField]
-    private float forceMultiplier = 3f;
+    [Header("Fruit Settings")]
     [SerializeField]
     private Transform fruitRoot;
     [SerializeField]
@@ -19,29 +18,34 @@ public class CloudController : MonoBehaviour
     private Transform nextNextFruitRoot;
     [SerializeField]
     private FruitManager fruitManager;
+    
+    [Header("Physics Settings")]
     [SerializeField]
     private Vector3 tilt;
     [SerializeField]
+    private float forceMultiplier = 3f;
+    [SerializeField]
     private bool isDebugOn = false;
+    
+    [Header("UI")]
     [SerializeField]
     private AudioSource audioSource;
     [SerializeField]
-    private bool isPointerHovering = false;
-    [SerializeField]
-    private bool isPointerClicked = false;
-    [SerializeField]
     private PauseMenu pauseMenu;
-
-    private GameObject equippedFruit = null;
-    private GameObject equippedNextNextFruit = null;
+    
+    /* Controller values */
+    private bool _isPointerHovering = false;
+    private bool _isPointerClicked = false;
+    private GameObject _equippedFruit = null;
+    private GameObject _equippedNextNextFruit = null;
 
     public void SetPointerHover(bool value)
     {
-        isPointerHovering = value;
+        _isPointerHovering = value;
     }
     public void SetPointerClick(bool value)
     {
-        isPointerClicked = value;
+        _isPointerClicked = value;
     }
     private void EquipNextFruit()
     {
@@ -54,22 +58,22 @@ public class CloudController : MonoBehaviour
         if(newFruit.GetComponent<PolygonCollider2D>() != null)
             newFruit.GetComponent<PolygonCollider2D>().enabled = false;
         newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
-        equippedFruit = newFruit;
+        _equippedFruit = newFruit;
         fruitManager.CheckRatEquipped();
         
-        Destroy(equippedNextNextFruit);
+        Destroy(_equippedNextNextFruit);
         
-        equippedNextNextFruit = Instantiate(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
-        equippedNextNextFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        _equippedNextNextFruit = Instantiate(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
+        _equippedNextNextFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
         
-        if(equippedNextNextFruit.GetComponent<CircleCollider2D>() != null)
-            equippedNextNextFruit.GetComponent<CircleCollider2D>().enabled = false;
+        if(_equippedNextNextFruit.GetComponent<CircleCollider2D>() != null)
+            _equippedNextNextFruit.GetComponent<CircleCollider2D>().enabled = false;
         
-        if(equippedNextNextFruit.GetComponent<CapsuleCollider2D>() != null)
-            equippedNextNextFruit.GetComponent<CapsuleCollider2D>().enabled = false;
+        if(_equippedNextNextFruit.GetComponent<CapsuleCollider2D>() != null)
+            _equippedNextNextFruit.GetComponent<CapsuleCollider2D>().enabled = false;
         
-        if(equippedNextNextFruit.GetComponent<PolygonCollider2D>() != null)
-            equippedNextNextFruit.GetComponent<PolygonCollider2D>().enabled = false;
+        if(_equippedNextNextFruit.GetComponent<PolygonCollider2D>() != null)
+            _equippedNextNextFruit.GetComponent<PolygonCollider2D>().enabled = false;
         
     }
 
@@ -83,7 +87,7 @@ public class CloudController : MonoBehaviour
         var horizontalInput = Input.GetAxis("Horizontal");
         rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(horizontalInput, 0f, 0f);
 
-        if (isPointerHovering)
+        if (_isPointerHovering)
         {
             UpdateMouse();
         }
@@ -104,7 +108,7 @@ public class CloudController : MonoBehaviour
         if (fruitManager.isFailed) return;
         if (fruitManager.dontFallFirst) return;
 
-        if (equippedFruit == null || equippedFruit.GetComponent<Fruit>().isTouched)
+        if (_equippedFruit == null || _equippedFruit.GetComponent<Fruit>().isTouched)
         {
             EquipNextFruit();
         }
@@ -119,11 +123,11 @@ public class CloudController : MonoBehaviour
             StartCoroutine(pauseMenu.ShowCR());
         }
 
-        var fireInput = isPointerClicked || Input.GetButtonDown("Submit");
+        var fireInput = _isPointerClicked || Input.GetButtonDown("Submit");
         if (fireInput && fruitContainer.childCount > 0)
         {
-            var equippedRotation = equippedFruit.transform.rotation;
-            Destroy(equippedFruit);
+            var equippedRotation = _equippedFruit.transform.rotation;
+            Destroy(_equippedFruit);
             
             var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitRoot);
             /* add jitter */
@@ -136,15 +140,15 @@ public class CloudController : MonoBehaviour
             
             //follow velocity. Just don't lol. funny though
             //newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
-            equippedFruit = newFruit;
+            _equippedFruit = newFruit;
             // set this to allow spam
 #if UNITY_EDITOR
             if(isDebugOn)
-                equippedFruit.GetComponent<Fruit>().isTouched = true;
+                _equippedFruit.GetComponent<Fruit>().isTouched = true;
 #endif
             fruitManager.AssignNextFruit();
         }
 
-        isPointerClicked = false;
+        _isPointerClicked = false;
     }
 }

@@ -1666,7 +1666,7 @@ GameObject:
   - component: {fileID: 180782415}
   - component: {fileID: 180782416}
   m_Layer: 6
-  m_Name: Cloud
+  m_Name: Cloud (Tongs)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2770,7 +2770,7 @@ GameObject:
   - component: {fileID: 324216921}
   - component: {fileID: 324216922}
   m_Layer: 6
-  m_Name: Cloud (1)
+  m_Name: Cloud (Tongs) Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8056,7 +8056,7 @@ GameObject:
   - component: {fileID: 1019948322}
   - component: {fileID: 1019948321}
   m_Layer: 6
-  m_Name: Controlled Fruit
+  m_Name: Controller and Fruit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8206,17 +8206,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27c5a6c2c701263498e85fd721ea0a09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 200
   fruitRoot: {fileID: 323314689}
   fruitContainer: {fileID: 1963349817}
   constrainedFruit: {fileID: 1019948320}
   nextNextFruitRoot: {fileID: 925935418}
   fruitManager: {fileID: 323314690}
   tilt: {x: 0, y: 0, z: 25}
+  forceMultiplier: 200
   isDebugOn: 0
   audioSource: {fileID: 1703799851}
-  isPointerHovering: 0
-  isPointerClicked: 0
   pauseMenu: {fileID: 1889425694}
 --- !u!224 &1032520162 stripped
 RectTransform:
@@ -8631,7 +8629,8 @@ Transform:
   m_LocalPosition: {x: -5.902777, y: -1.1909027, z: 90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1390973688}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1113130152
@@ -11277,11 +11276,11 @@ Transform:
   m_GameObject: {fileID: 1390973687}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.957967, y: -0.4031844, z: -90.01403}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1437612608}
+  m_Father: {fileID: 1090514963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1390973689
 AudioSource:
@@ -11408,7 +11407,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1390973688}
   - {fileID: 1657213417}
   - {fileID: 1703799849}
   - {fileID: 1067211050}
