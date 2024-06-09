@@ -18,13 +18,25 @@ namespace tastelikecoke.PanMachine
         public bool isExplosive = false;
         public bool isRosebud = false;
 
+        
+        private Animator _animator;
+        private Rigidbody2D _rigidbody;
+        private Collider2D[] _colliders;
+        
         private void Awake()
         {
-            var animator = GetComponent<Animator>();
-            if (animator)
+            _animator = GetComponent<Animator>();
+            if (_animator)
             {
-                animator.enabled = false;
+                _animator.enabled = false;
             }
+
+            _rigidbody = GetComponent<Rigidbody2D>();
+            
+            _colliders = new Collider2D[3];
+            _colliders[0] = GetComponent<CircleCollider2D>();
+            _colliders[1] = GetComponent<PolygonCollider2D>();
+            _colliders[2] = GetComponent<CapsuleCollider2D>();
         }
 
         private void OnCollisionEnter2D(Collision2D col)
@@ -33,9 +45,10 @@ namespace tastelikecoke.PanMachine
         }
         private void OnCollide(GameObject otherObject)
         {
+            if (!manager)
+                return;
             // do not execute if on retry.
             if (manager.isFailed) return;
-
 
             if (isPopping) return;
             var contactFruit = otherObject.GetComponent<Fruit>();
@@ -61,9 +74,10 @@ namespace tastelikecoke.PanMachine
             {
                 if (manager)
                 {
-                    /* rat to rat fusion only. I am genius */
+                    /* allow rat to rat fusion only */
                     if (isRat != contactFruit.isRat) return;
-                    /* I need to stop fusion with already fusing */
+                    
+                    /* Need to stop fusion with already fusing */
                     if (contactFruit.isPopping) return;
 
                     this.isPopping = true;
@@ -86,43 +100,42 @@ namespace tastelikecoke.PanMachine
             }
         }
 
-        public void Fail()
+        public void SetColliders(bool enableState)
         {
-            if (gameObject.GetComponent<CircleCollider2D>() != null)
-                gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            if (gameObject.GetComponent<PolygonCollider2D>() != null)
-                gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-            if (gameObject.GetComponent<CapsuleCollider2D>() != null)
-                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-            gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            var animator = GetComponent<Animator>();
-            if (animator)
+            for (int i = 0; i < 3; i++)
             {
-
-                animator.enabled = true;
-                animator.SetTrigger("Shake");
+                if (_colliders[i] != null)
+                    _colliders[i].enabled = enableState;
             }
         }
 
-
+        public void SetAsNonMoving()
+        {
+            _rigidbody.bodyType = RigidbodyType2D.Kinematic;
+            SetColliders(false);
+        }
+        public void Fail()
+        {
+            SetColliders(false);
+            _rigidbody.bodyType = RigidbodyType2D.Static;
+            if (_animator)
+            {
+                _animator.enabled = true;
+                _animator.SetTrigger("Shake");
+            }
+        }
+        
         public IEnumerator Pop()
         {
-            if (gameObject.GetComponent<CircleCollider2D>() != null)
-                gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            if (gameObject.GetComponent<PolygonCollider2D>() != null)
-                gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-            if (gameObject.GetComponent<CapsuleCollider2D>() != null)
-                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
-            gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            var animator = GetComponent<Animator>();
-            if (animator)
+            SetColliders(false);
+            _rigidbody.bodyType = RigidbodyType2D.Static;
+            if (_animator)
             {
-
-                animator.enabled = true;
-                animator.SetTrigger("Pop");
+                _animator.enabled = true;
+                _animator.SetTrigger("Pop");
             }
 
-            //yield return new WaitForSeconds(3f);
+            /* wait for the pop animation */
             yield return new WaitForSeconds(1f / 12f);
 
             Destroy(gameObject);
@@ -130,11 +143,10 @@ namespace tastelikecoke.PanMachine
 
         public IEnumerator Explode()
         {
-            var animator = GetComponent<Animator>();
-            if (animator)
+            if (_animator)
             {
-                animator.enabled = true;
-                animator.SetTrigger("Ohno");
+                _animator.enabled = true;
+                _animator.SetTrigger("Ohno");
             }
 
             yield return new WaitForSeconds(2f);

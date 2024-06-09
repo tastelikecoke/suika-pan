@@ -52,13 +52,10 @@ namespace tastelikecoke.PanMachine
         private void EquipNextFruit()
         {
             var newFruit = Instantiate(fruitManager.GetNextFruit(), fruitContainer);
-            newFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-            if (newFruit.GetComponent<CircleCollider2D>() != null)
-                newFruit.GetComponent<CircleCollider2D>().enabled = false;
-            if (newFruit.GetComponent<CapsuleCollider2D>() != null)
-                newFruit.GetComponent<CapsuleCollider2D>().enabled = false;
-            if (newFruit.GetComponent<PolygonCollider2D>() != null)
-                newFruit.GetComponent<PolygonCollider2D>().enabled = false;
+
+            var newFruitScript = newFruit.GetComponent<Fruit>();
+            newFruitScript.SetAsNonMoving();
+            
             newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
             _equippedFruit = newFruit;
             fruitManager.CheckRatEquipped();
@@ -66,17 +63,9 @@ namespace tastelikecoke.PanMachine
             Destroy(_equippedNextNextFruit);
 
             _equippedNextNextFruit = Instantiate(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
-            _equippedNextNextFruit.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-
-            if (_equippedNextNextFruit.GetComponent<CircleCollider2D>() != null)
-                _equippedNextNextFruit.GetComponent<CircleCollider2D>().enabled = false;
-
-            if (_equippedNextNextFruit.GetComponent<CapsuleCollider2D>() != null)
-                _equippedNextNextFruit.GetComponent<CapsuleCollider2D>().enabled = false;
-
-            if (_equippedNextNextFruit.GetComponent<PolygonCollider2D>() != null)
-                _equippedNextNextFruit.GetComponent<PolygonCollider2D>().enabled = false;
-
+            
+            var equippedNextNextFruitScript = _equippedNextNextFruit.GetComponent<Fruit>();
+            equippedNextNextFruitScript.SetAsNonMoving();
         }
 
         private void FixedUpdate()
