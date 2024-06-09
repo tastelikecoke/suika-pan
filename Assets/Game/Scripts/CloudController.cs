@@ -55,6 +55,12 @@ namespace tastelikecoke.PanMachine
         }
         private void EquipNextFruit()
         {
+            if (_equippedNextNextFruit != null)
+            {
+                _equippedNextNextFruit.GetComponent<Fruit>().Hide();
+                _equippedNextNextFruit = null;
+            }
+            
             var newFruit = fruitPool.GetObject(fruitManager.GetNextFruit(), fruitContainer);
             var newFruitScript = newFruit.GetComponent<Fruit>();
             newFruitScript.SetAsNonMoving();
@@ -62,12 +68,6 @@ namespace tastelikecoke.PanMachine
             newFruit.transform.rotation = Random.value > 0.5f ? Quaternion.Euler(-tilt) : Quaternion.Euler(tilt);
             _equippedFruit = newFruit;
             fruitManager.CheckRatEquipped();
-
-            if (_equippedNextNextFruit != null)
-            {
-                _equippedNextNextFruit.GetComponent<Fruit>().Hide();
-                _equippedNextNextFruit = null;
-            }
 
             _equippedNextNextFruit = fruitPool.GetObject(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
             
