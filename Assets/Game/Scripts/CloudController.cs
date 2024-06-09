@@ -56,7 +56,6 @@ namespace tastelikecoke.PanMachine
         private void EquipNextFruit()
         {
             var newFruit = fruitPool.GetObject(fruitManager.GetNextFruit(), fruitContainer);
-
             var newFruitScript = newFruit.GetComponent<Fruit>();
             newFruitScript.SetAsNonMoving();
             
@@ -64,8 +63,11 @@ namespace tastelikecoke.PanMachine
             _equippedFruit = newFruit;
             fruitManager.CheckRatEquipped();
 
-            if(_equippedNextNextFruit != null)
+            if (_equippedNextNextFruit != null)
+            {
                 _equippedNextNextFruit.GetComponent<Fruit>().Hide();
+                _equippedNextNextFruit = null;
+            }
 
             _equippedNextNextFruit = fruitPool.GetObject(fruitManager.GetNextNextFruit(), nextNextFruitRoot);
             
@@ -122,7 +124,12 @@ namespace tastelikecoke.PanMachine
             if (fireInput && fruitContainer.childCount > 0)
             {
                 var equippedRotation = _equippedFruit.transform.rotation;
-                _equippedFruit.GetComponent<Fruit>().Hide();
+                if (_equippedFruit != null)
+                {
+                    _equippedFruit.GetComponent<Fruit>().Hide();
+                    _equippedFruit = null;
+                }
+
 
                 var newFruit = fruitPool.GetObject(fruitManager.GetNextFruit(), fruitRoot);
                 /* add jitter */

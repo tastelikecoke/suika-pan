@@ -204,9 +204,11 @@ namespace tastelikecoke.PanMachine
 
         public IEnumerator GenerateFruitCR(Fruit fruit1, Fruit fruit2)
         {
+            Debug.Log($"Generating Fruit..{fruit1.level} {fruit2.level}");
             if (isFailed) yield break;
             if (fruit1.level != fruit2.level) yield break;
             if (fruitList.Length <= fruit1.level) yield break;
+            Debug.Log($"Generating Fruit Success..{fruit1.level} {fruit2.level}");
 
             if (!audioSource.isPlaying)
                 audioSource.Play();
@@ -254,6 +256,8 @@ namespace tastelikecoke.PanMachine
                 ididitAudioSource.Play();
             }
 
+            
+            Debug.Log($"SPawning fruit Item.....");
             var newFruit = fruitPool.GetObject(spawningFruit, fruitRoot);
             newFruit.transform.position = Vector3.Lerp(fruit1.transform.position, fruit2.transform.position, 0.5f);
             newFruit.transform.rotation = Quaternion.Lerp(fruit1.transform.rotation, fruit2.transform.rotation, 0.5f);

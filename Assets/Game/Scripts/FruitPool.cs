@@ -31,6 +31,7 @@ namespace tastelikecoke.PanMachine
                 fruitPool = new Dictionary<string, List<Fruit>>();
             
             var fruitScript = fruitObject.GetComponent<Fruit>();
+            Debug.Log($"Spawning Item{fruitScript.fruitID}");
             if (!fruitPool.ContainsKey(fruitScript.fruitID))
             {
                 fruitPool.Add(fruitScript.fruitID, new List<Fruit>());
@@ -44,10 +45,12 @@ namespace tastelikecoke.PanMachine
                 {
                     fruitPoolList[i].transform.SetParent(fruitRoot);
                     fruitPoolList[i].transform.position = fruitRoot.transform.position;
+                    fruitPoolList[i].transform.localScale = Vector3.one;
                     fruitPoolList[i].Reset();
                     return fruitPoolList[i].gameObject;
                 }
             }
+            
 
             var newFruit = Instantiate(fruitObject, fruitRoot);
             var newFruitScript = newFruit.GetComponent<Fruit>();
@@ -57,6 +60,7 @@ namespace tastelikecoke.PanMachine
             if (newFruitScript != null)
                 fruitPoolList.Add(newFruit.GetComponent<Fruit>());
 
+            Debug.Log($"New Item{newFruitScript.fruitID}");
             return newFruit;
         }
     }

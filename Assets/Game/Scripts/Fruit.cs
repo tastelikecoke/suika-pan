@@ -67,6 +67,7 @@ namespace tastelikecoke.PanMachine
         }
         private void OnCollide(GameObject otherObject)
         {
+            if (isHidden) return;
             if (!manager)
                 return;
             // do not execute if on retry.
@@ -104,12 +105,13 @@ namespace tastelikecoke.PanMachine
 
                     this.isPopping = true;
                     contactFruit.isPopping = true;
-                    StartCoroutine(manager.GenerateFruitCR(this, contactFruit));
+                    manager.StartCoroutine(manager.GenerateFruitCR(this, contactFruit));
                 }
             }
         }
         private void OnTriggerEnter2D(Collider2D col)
         {
+            if (isHidden) return;
             if (!manager)
                 return;
             if (col.gameObject.name == "Death")
@@ -149,7 +151,6 @@ namespace tastelikecoke.PanMachine
         
         public IEnumerator Pop()
         {
-            yield return null;
             SetColliders(false);
             _rigidbody.bodyType = RigidbodyType2D.Static;
             if (_animator)
@@ -186,8 +187,8 @@ namespace tastelikecoke.PanMachine
         
         public void Reset()
         {
-            gameObject.SetActive(true);
             isHidden = false;
+            gameObject.SetActive(true);
             _animator.SetTrigger("Reset");
             
             for (int i = 0; i < 3; i++)
@@ -197,6 +198,8 @@ namespace tastelikecoke.PanMachine
             }
             _rigidbody.bodyType = RigidbodyType2D.Dynamic;
             _rigidbody.velocity = Vector3.zero;
+            isPopping = false;
+            isTouched = false;
         }
     }
 }
