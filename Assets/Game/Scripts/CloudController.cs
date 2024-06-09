@@ -28,6 +28,8 @@ namespace tastelikecoke.PanMachine
         private float forceMultiplier = 3f;
         [SerializeField]
         private bool isDebugOn = false;
+        [SerializeField]
+        private Rigidbody2D rigidbody2d = null;
 
         [Header("UI")]
         [SerializeField]
@@ -74,9 +76,8 @@ namespace tastelikecoke.PanMachine
             if (fruitManager.isFailed) return;
             if (fruitManager.dontFallFirst) return;
 
-            var rb = GetComponent<Rigidbody2D>();
             var horizontalInput = Input.GetAxis("Horizontal");
-            rb.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(horizontalInput, 0f, 0f);
+            rigidbody2d.velocity = forceMultiplier * Time.fixedDeltaTime * new Vector3(horizontalInput, 0f, 0f);
 
             if (_isPointerHovering)
             {
@@ -88,7 +89,6 @@ namespace tastelikecoke.PanMachine
         {
             if (fruitManager.dontFallFirst) return;
 
-            var rb = GetComponent<Rigidbody2D>();
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             transform.position = new Vector3(mousePosition.x, transform.position.y, transform.position.z);
@@ -97,6 +97,7 @@ namespace tastelikecoke.PanMachine
         {
             // do not execute if on retry.
             if (fruitManager.isFailed) return;
+            
             if (fruitManager.dontFallFirst) return;
 
             if (_equippedFruit == null || _equippedFruit.GetComponent<Fruit>().isTouched)
@@ -129,11 +130,13 @@ namespace tastelikecoke.PanMachine
                 if (!audioSource.isPlaying)
                     audioSource.Play();
 
-                //follow velocity. Just don't lol. funny though
+                //Follow velocity of cloud to the fruit would be funny. Disabling this for prod.
                 //newFruit.GetComponent<Rigidbody2D>().velocity = GetComponent<Rigidbody2D>().velocity;
+                
                 _equippedFruit = newFruit;
-                // set this to allow spam
+                
 #if UNITY_EDITOR
+                // set this to allow spam
                 if (isDebugOn)
                     _equippedFruit.GetComponent<Fruit>().isTouched = true;
 #endif

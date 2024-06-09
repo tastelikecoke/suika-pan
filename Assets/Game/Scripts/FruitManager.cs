@@ -124,14 +124,16 @@ namespace tastelikecoke.PanMachine
             if (nextFruit == null)
             {
                 nextFruit = fruitList[Random.Range(0, maxFruit)];
-                if (nextFruit.GetComponent<Fruit>().level == 1)
+                var nextFruitScript = nextFruit.GetComponent<Fruit>();
+                
+                if (nextFruitScript.level == 1)
                 {
                     if (ratChance > Random.Range(0f, 100f))
                     {
                         nextFruit = ratFruit;
                     }
                 }
-                else if (nextFruit.GetComponent<Fruit>().level == 3)
+                else if (nextFruitScript.level == 3)
                 {
                     if (explosionChance > Random.Range(0f, 100f))
                     {
@@ -142,14 +144,16 @@ namespace tastelikecoke.PanMachine
             }
 
             nextNextFruit = fruitList[Random.Range(0, maxFruit)];
-            if (nextNextFruit.GetComponent<Fruit>().level == 1)
+            var nextNextFruitScript = nextNextFruit.GetComponent<Fruit>();
+            
+            if (nextNextFruitScript.level == 1)
             {
                 if (ratChance > Random.Range(0f, 100f))
                 {
                     nextNextFruit = ratFruit;
                 }
             }
-            else if (nextNextFruit.GetComponent<Fruit>().level == 3)
+            else if (nextNextFruitScript.level == 3)
             {
                 if (explosionChance > Random.Range(0f, 100f))
                 {

@@ -2736,20 +2736,20 @@ MonoBehaviour:
   retryMenu: {fileID: 1011120906}
   audioSource: {fileID: 1657213416}
   buildNumberText: {fileID: 886790313}
-  ratAudioSource: {fileID: 1067211051}
-  ratFruit: {fileID: 78220219139644148, guid: 815e87943941f774e87fefd679b3fdaa, type: 3}
   ratChance: 0
-  pomuAudioSource: {fileID: 441295221}
-  pomuFruit: {fileID: 78220219139644148, guid: 6affee0707a88254d811b80bc3ea750e, type: 3}
+  ratFruit: {fileID: 78220219139644148, guid: 815e87943941f774e87fefd679b3fdaa, type: 3}
+  ratAudioSource: {fileID: 1067211051}
   pomuChance: 0
-  explosionFruit: {fileID: 78220219139644148, guid: 78f652652024dd84b9bc58cf47a272e2, type: 3}
+  pomuFruit: {fileID: 78220219139644148, guid: 6affee0707a88254d811b80bc3ea750e, type: 3}
+  pomuAudioSource: {fileID: 441295221}
   explosionChance: 0
+  explosionFruit: {fileID: 78220219139644148, guid: 78f652652024dd84b9bc58cf47a272e2, type: 3}
   explosionSource: {fileID: 489368330}
   explosion: {fileID: 2053978647959197256, guid: 91b114b20c550ca4683b9c8eb6f89875, type: 3}
   explosionPower: 1000
-  rosebudAudioSource: {fileID: 1113130154}
-  rosebudFruit: {fileID: 78220219139644148, guid: f96b5b9f8295cfd409ff7fdbbbcf5aa2, type: 3}
   rosebudChance: 0
+  rosebudFruit: {fileID: 78220219139644148, guid: f96b5b9f8295cfd409ff7fdbbbcf5aa2, type: 3}
+  rosebudAudioSource: {fileID: 1113130154}
   pentomoAudioSource: {fileID: 711285010}
   pentomoFruit: {fileID: 78220219139644148, guid: cf9741b8450af3349a10587bee808f5b, type: 3}
   pentomoChance: 0
@@ -8214,6 +8214,7 @@ MonoBehaviour:
   tilt: {x: 0, y: 0, z: 25}
   forceMultiplier: 200
   isDebugOn: 0
+  rigidbody2d: {fileID: 1019948322}
   audioSource: {fileID: 1703799851}
   pauseMenu: {fileID: 1889425694}
 --- !u!224 &1032520162 stripped
