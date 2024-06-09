@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-    public int level = 0;
     public FruitManager manager;
+    
+    [Header("Fruit Settings")]
+    public int level = 0;
     public bool isPopping = false;
     public bool isTouched = true;
     public bool isRat = false;

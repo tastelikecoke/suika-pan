@@ -5,6 +5,10 @@ using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Handles spawning the fruits. Also controls the tongs (aka "Cloud")
+/// Represents the cloud in the original Suika Game.
+/// </summary>
 public class CloudController : MonoBehaviour
 {
     [Header("Fruit Settings")]

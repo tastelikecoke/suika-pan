@@ -4,12 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Script to keep track of the score for every scene. Also maintains the BGM instance
+/// </summary>
 public class GameSystem : MonoBehaviour
 {
     public List<int> localScores;
     public AudioSource bgm;
 
+    /// <summary> original name is from Dragoon Drop release </summary>
+    private const string KEY_SAVE_FILE_FOR_LOCAL_RANKING = "dragoon_drop_save_file_for_local_ranking";
+    
     public static GameSystem Instance = null;
+    
     private void Awake()
     {
         if (Instance != null)
@@ -19,7 +26,7 @@ public class GameSystem : MonoBehaviour
         }
 
         Instance = this;
-        string storedScores = PlayerPrefs.GetString("dragoon_drop_save_file_for_local_ranking", null);
+        string storedScores = PlayerPrefs.GetString(KEY_SAVE_FILE_FOR_LOCAL_RANKING, null);
         localScores = new List<int>();
         if (!string.IsNullOrEmpty(storedScores))
         {
@@ -49,7 +56,7 @@ public class GameSystem : MonoBehaviour
             else storedScore = storedScore + " " + scoreInt.ToString();
         }
 
-        PlayerPrefs.SetString("dragoon_drop_save_file_for_local_ranking", storedScore);
+        PlayerPrefs.SetString(KEY_SAVE_FILE_FOR_LOCAL_RANKING, storedScore);
         PlayerPrefs.Save();
     }
 

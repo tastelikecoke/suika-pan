@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Handles BGM enabler disabler.
+/// </summary>
 public class SoundFiend : MonoBehaviour
 {
     [SerializeField]

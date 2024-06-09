@@ -5,8 +5,13 @@ using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+/// <summary>
+/// Handles all the fruits.  Fruits are items that drop on the gameplay space
+/// Since this game is based on Suika Game.
+/// </summary>
 public class FruitManager : MonoBehaviour
 {
+    [Header("Fruit Settings")]
     public GameObject[] fruitList;
     [SerializeField]
     private Transform fruitRoot;
@@ -16,48 +21,61 @@ public class FruitManager : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private TMP_Text buildNumberText;
-    [SerializeField, Header("Pomu")]
-    private AudioSource ratAudioSource;
+    
+    [Header("Rat")][Tooltip("Chance of spawning a fruit that doesn't fuse unless it's a rat")]
+    [SerializeField]
+    private float ratChance = 5f;
     [SerializeField]
     private GameObject ratFruit;
     [SerializeField]
-    private float ratChance = 5f;
-    [SerializeField, Header("Pomu")]
-    private AudioSource pomuAudioSource;
+    private AudioSource ratAudioSource;
+    
+    [Header("Pomu")][Tooltip("Chance of spawning a fruit that has an abnormal collider")]
+    [SerializeField]
+    private float pomuChance = 5f;
     [SerializeField]
     private GameObject pomuFruit;
     [SerializeField]
-    private float pomuChance = 5f;
-    [SerializeField, Header("Grenade")]
-    private GameObject explosionFruit;
+    private AudioSource pomuAudioSource;
+    
+    [Header("Explosive Grenade")][Tooltip("Chance of spawning a fruit that explodes")]
     [SerializeField]
     private float explosionChance = 5f;
+    [SerializeField]
+    private GameObject explosionFruit;
     [SerializeField]
     private AudioSource explosionSource;
     [SerializeField]
     private GameObject explosion;
     [SerializeField]
     private float explosionPower = 1000f;
-    [SerializeField, Header("Rosebuds")]
-    private AudioSource rosebudAudioSource;
+    
+    [Header("Rosebuds")][Tooltip("Chance of spawning a heavier fruit")]
+    [SerializeField]
+    private float rosebudChance = 5f;
     [SerializeField]
     private GameObject rosebudFruit;
     [SerializeField]
-    private float rosebudChance = 5f;
-    [SerializeField, Header("Pentomos")]
+    private AudioSource rosebudAudioSource;
+    
+    [Header("Pentomos")][Tooltip("Chance of spawning a spinning fruit")]
+    [SerializeField]
     private AudioSource pentomoAudioSource;
     [SerializeField]
     private GameObject pentomoFruit;
     [SerializeField]
     private float pentomoChance = 5f;
-    [SerializeField, Header("Sewen")]
+    
+    [Header("I did it")][Tooltip("Sound when final fruit is created")]
+    [SerializeField]
     private AudioSource ididitAudioSource;
 
-    public int totalScore = 0;
-    
+    /* fruit instances active */
     private GameObject nextFruit;
     private GameObject nextNextFruit;
 
+    /* mostly accessed by other scripts */
+    public int totalScore = 0;
     public bool isFailed = false;
     public bool dontFallFirst = false;
     public bool isUploadedAlready = false;
@@ -105,7 +123,6 @@ public class FruitManager : MonoBehaviour
             nextFruit = fruitList[Random.Range(0, maxFruit)];
             if (nextFruit.GetComponent<Fruit>().level == 1)
             {
-                // 5% rat Chance
                 if (ratChance > Random.Range(0f, 100f))
                 {
                     nextFruit = ratFruit;
@@ -113,7 +130,6 @@ public class FruitManager : MonoBehaviour
             }
             else if (nextFruit.GetComponent<Fruit>().level == 3)
             {
-                // 5% grenade Chance
                 if (explosionChance > Random.Range(0f, 100f))
                 {
                     nextFruit = explosionFruit;
@@ -124,7 +140,6 @@ public class FruitManager : MonoBehaviour
         nextNextFruit = fruitList[Random.Range(0, maxFruit)];
         if (nextNextFruit.GetComponent<Fruit>().level == 1)
         {
-            // 5% rat Chance
             if (ratChance > Random.Range(0f, 100f))
             {
                 nextNextFruit = ratFruit;
@@ -132,7 +147,6 @@ public class FruitManager : MonoBehaviour
         }
         else if (nextNextFruit.GetComponent<Fruit>().level == 3)
         {
-            // 5% grenade Chance
             if (explosionChance > Random.Range(0f, 100f))
             {
                 nextNextFruit = explosionFruit;
