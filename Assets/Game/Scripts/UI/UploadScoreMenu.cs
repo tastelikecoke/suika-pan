@@ -11,14 +11,14 @@ namespace tastelikecoke.PanMachine
     public class UploadScoreMenu : MonoBehaviour
     {
         [SerializeField]
-        private FruitManager _fruitManager;
-        [SerializeField]
         private InputField inputField;
         [SerializeField]
         private TMP_Text waitText;
         private FruitManager manager;
         [SerializeField, TextArea]
         private string badWords;
+        [SerializeField]
+        internal Canvas canvas;
 
         /// <summary>
         /// Detect bad words on the score upload and prevent them
@@ -75,7 +75,7 @@ namespace tastelikecoke.PanMachine
         /// </summary>
         public void PressSkip()
         {
-            this.GetComponent<Canvas>().enabled = false;
+            canvas.enabled = false;
             foreach (var selectable in GetComponentsInChildren<Selectable>())
             {
                 selectable.interactable = false;
@@ -87,7 +87,7 @@ namespace tastelikecoke.PanMachine
         /// </summary>
         public void Show()
         {
-            this.GetComponent<Canvas>().enabled = true;
+            canvas.enabled = true;
             foreach (var selectable in GetComponentsInChildren<Selectable>())
             {
                 selectable.interactable = true;

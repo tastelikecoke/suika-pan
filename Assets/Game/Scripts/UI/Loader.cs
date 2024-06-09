@@ -7,6 +7,7 @@ namespace tastelikecoke.PanMachine
 {
     public class Loader : MonoBehaviour
     {
+
         public void Load()
         {
             StartCoroutine(LoadCR());
@@ -22,9 +23,10 @@ namespace tastelikecoke.PanMachine
             
             if (!operation.isDone)
             {
-                GetComponent<Animator>().SetTrigger("Start");
+                var animator = this.GetComponent<Animator>();
+                animator.SetTrigger("Start");
                 yield return new WaitUntil(() => operation.isDone);
-                GetComponent<Animator>().SetTrigger("End");
+                animator.SetTrigger("End");
                 yield return new WaitForSeconds(0.5f);
             }
             

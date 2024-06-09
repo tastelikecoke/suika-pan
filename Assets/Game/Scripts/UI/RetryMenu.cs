@@ -24,14 +24,22 @@ namespace tastelikecoke.PanMachine
         [SerializeField]
         private AudioSource tada;
         
+        private Canvas _canvas;
+        private Selectable[] _selectables;
+
+        private void Awake()
+        {
+            _canvas = GetComponent<Canvas>();
+            _selectables = GetComponentsInChildren<Selectable>();
+        }
         
         /// <summary>
         /// Hide the retry menu
         /// </summary>
         public void PressRetry()
         {
-            this.GetComponent<Canvas>().enabled = false;
-            foreach (var selectable in GetComponentsInChildren<Selectable>())
+            _canvas.enabled = false;
+            foreach (var selectable in _selectables)
             {
                 selectable.interactable = false;
             }
@@ -52,8 +60,8 @@ namespace tastelikecoke.PanMachine
         /// </summary>
         public void Show(bool isHighScore = false)
         {
-            this.GetComponent<Canvas>().enabled = true;
-            foreach (var selectable in GetComponentsInChildren<Selectable>())
+            _canvas.enabled = true;
+            foreach (var selectable in _selectables)
             {
                 selectable.interactable = true;
             }
@@ -66,10 +74,10 @@ namespace tastelikecoke.PanMachine
         }
         public void Update()
         {
-            if (uploadScoreMenu.GetComponent<Canvas>().enabled)
+            if (uploadScoreMenu.canvas.enabled)
                 return;
 
-            if (GetComponent<Canvas>().enabled)
+            if (_canvas.enabled)
             {
                 if (Input.GetButtonDown("Submit"))
                 {
