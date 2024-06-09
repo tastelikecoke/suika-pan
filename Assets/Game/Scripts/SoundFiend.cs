@@ -10,7 +10,7 @@ namespace tastelikecoke.PanMachine
     {
         [SerializeField]
         private Toggle toggle;
-        private void Update()
+        private void Start()
         {
             if (GameSystem.Instance)
             {
