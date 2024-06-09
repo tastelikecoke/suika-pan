@@ -189,7 +189,11 @@ namespace tastelikecoke.PanMachine
         {
             isHidden = false;
             gameObject.SetActive(true);
-            _animator.SetTrigger("Reset");
+            if (_animator)
+            {
+                _animator.SetTrigger("Reset");
+                _animator.enabled = false;
+            }
             
             for (int i = 0; i < 3; i++)
             {

@@ -46,6 +46,8 @@ namespace tastelikecoke.PanMachine
                     fruitPoolList[i].Reset();
                     fruitPoolList[i].transform.SetParent(fruitRoot);
                     fruitPoolList[i].transform.position = fruitRoot.transform.position;
+                    fruitPoolList[i].transform.localScale = fruitRoot.transform.localScale;
+                    fruitPoolList[i].gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                     return fruitPoolList[i].gameObject;
                 }
             }
