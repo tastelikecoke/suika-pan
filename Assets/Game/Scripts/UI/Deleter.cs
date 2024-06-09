@@ -1,16 +1,19 @@
 using UnityEngine;
 
-/// <summary>
-/// Script for delete local save file button
-/// </summary>
-public class Deleter : MonoBehaviour
+namespace tastelikecoke.PanMachine
 {
-    public void OnPress()
+    /// <summary>
+    /// Script for delete local save file button
+    /// </summary>
+    public class Deleter : MonoBehaviour
     {
-        PlayerPrefs.DeleteKey(GameSystem.SaveFileForLocalRankingKey);
-        PlayerPrefs.Save();
-        
-        if(GameSystem.Instance)
-            GameSystem.Instance.localScores.Clear();
+        public void OnPress()
+        {
+            PlayerPrefs.DeleteKey(GameSystem.SaveFileForLocalRankingKey);
+            PlayerPrefs.Save();
+
+            if (GameSystem.Instance)
+                GameSystem.Instance.localScores.Clear();
+        }
     }
 }

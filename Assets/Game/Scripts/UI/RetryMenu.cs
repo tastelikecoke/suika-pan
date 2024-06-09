@@ -4,73 +4,78 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/// <summary>
-/// For UI of Retry menu
-/// </summary>
-public class RetryMenu : MonoBehaviour
+namespace tastelikecoke.PanMachine
 {
-    [SerializeField]
-    private FruitManager _fruitManager;
-    [SerializeField]
-    private RawImage screenshot;
-    [SerializeField]
-    private GameObject highScoreText;
-    [SerializeField]
-    private GameObject normalText;
-    [SerializeField]
-    private UploadScoreMenu uploadScoreMenu;
-    [SerializeField]
-    private AudioSource tada;
-    public void PressRetry()
+    /// <summary>
+    /// For UI of Retry menu
+    /// </summary>
+    public class RetryMenu : MonoBehaviour
     {
-        /// transition
-        this.GetComponent<Canvas>().enabled = false;
-        foreach (var selectable in GetComponentsInChildren<Selectable>())
+        [SerializeField]
+        private FruitManager _fruitManager;
+        [SerializeField]
+        private RawImage screenshot;
+        [SerializeField]
+        private GameObject highScoreText;
+        [SerializeField]
+        private GameObject normalText;
+        [SerializeField]
+        private UploadScoreMenu uploadScoreMenu;
+        [SerializeField]
+        private AudioSource tada;
+        public void PressRetry()
         {
-            selectable.interactable = false;
-        }
-        _fruitManager.Retry();
-    }
-    public void PressReturnToTitle()
-    {
-        SceneManager.LoadScene("Launcher");
-    }
-    public void PressUploadScore()
-    {
-        uploadScoreMenu.Show();
-    }
+            /// transition
+            this.GetComponent<Canvas>().enabled = false;
+            foreach (var selectable in GetComponentsInChildren<Selectable>())
+            {
+                selectable.interactable = false;
+            }
 
-    public void Show(bool isHighScore = false)
-    {
-        /// transition
-        this.GetComponent<Canvas>().enabled = true;
-        foreach (var selectable in GetComponentsInChildren<Selectable>())
-        {
-            selectable.interactable = true;
+            _fruitManager.Retry();
         }
-        screenshot.texture = _fruitManager.screenshot;
-        highScoreText.SetActive(isHighScore);
-        normalText.SetActive(!isHighScore);
-        if(isHighScore)
-            tada.Play();
-    }
-    public void Update()
-    {
-        if (uploadScoreMenu.GetComponent<Canvas>().enabled)
-            return;
-        
-        if (GetComponent<Canvas>().enabled)
+        public void PressReturnToTitle()
         {
-            if (Input.GetButtonDown("Submit"))
-            {
-                PressRetry();
-            }
-            
-            if (Input.GetButtonDown("Cancel"))
-            {
-                PressReturnToTitle();
-            }
+            SceneManager.LoadScene("Launcher");
         }
-        
+        public void PressUploadScore()
+        {
+            uploadScoreMenu.Show();
+        }
+
+        public void Show(bool isHighScore = false)
+        {
+            /// transition
+            this.GetComponent<Canvas>().enabled = true;
+            foreach (var selectable in GetComponentsInChildren<Selectable>())
+            {
+                selectable.interactable = true;
+            }
+
+            screenshot.texture = _fruitManager.screenshot;
+            highScoreText.SetActive(isHighScore);
+            normalText.SetActive(!isHighScore);
+            if (isHighScore)
+                tada.Play();
+        }
+        public void Update()
+        {
+            if (uploadScoreMenu.GetComponent<Canvas>().enabled)
+                return;
+
+            if (GetComponent<Canvas>().enabled)
+            {
+                if (Input.GetButtonDown("Submit"))
+                {
+                    PressRetry();
+                }
+
+                if (Input.GetButtonDown("Cancel"))
+                {
+                    PressReturnToTitle();
+                }
+            }
+
+        }
     }
 }

@@ -3,54 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// For UI of Pause
-/// </summary>
-public class PauseMenu : MonoBehaviour
+namespace tastelikecoke.PanMachine
 {
-    public void Show()
+    /// <summary>
+    /// For UI of Pause
+    /// </summary>
+    public class PauseMenu : MonoBehaviour
     {
-        /// transition
-        this.GetComponent<Canvas>().enabled = true;
-        foreach (var selectable in GetComponentsInChildren<Selectable>())
+        public void Show()
         {
-            selectable.interactable = true;
-        }
-    }
-    public void Hide()
-    {
-        /// transition
-        this.GetComponent<Canvas>().enabled = false;
-        foreach (var selectable in GetComponentsInChildren<Selectable>())
-        {
-            selectable.interactable = false;
-        }
-    }
-    public void Update()
-    {
-        if (GetComponent<Canvas>().enabled)
-        {
-            if (Input.GetButtonDown("Submit"))
+            /// transition
+            this.GetComponent<Canvas>().enabled = true;
+            foreach (var selectable in GetComponentsInChildren<Selectable>())
             {
-                StartCoroutine(HideCR());
-            }
-            
-            if (Input.GetButtonDown("Cancel"))
-            {
-                StartCoroutine(HideCR());
+                selectable.interactable = true;
             }
         }
-        
+        public void Hide()
+        {
+            /// transition
+            this.GetComponent<Canvas>().enabled = false;
+            foreach (var selectable in GetComponentsInChildren<Selectable>())
+            {
+                selectable.interactable = false;
+            }
+        }
+        public void Update()
+        {
+            if (GetComponent<Canvas>().enabled)
+            {
+                if (Input.GetButtonDown("Submit"))
+                {
+                    StartCoroutine(HideCR());
+                }
+
+                if (Input.GetButtonDown("Cancel"))
+                {
+                    StartCoroutine(HideCR());
+                }
+            }
+
+        }
+        public IEnumerator ShowCR()
+        {
+            yield return null;
+            Show();
+        }
+        public IEnumerator HideCR()
+        {
+            yield return null;
+            Hide();
+        }
     }
-    public IEnumerator ShowCR()
-    {
-        yield return null;
-        Show();
-    }
-    public IEnumerator HideCR()
-    {
-        yield return null;
-        Hide();
-    }
-    
 }

@@ -1,26 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// Handles BGM enabler disabler.
-/// </summary>
-public class SoundFiend : MonoBehaviour
+namespace tastelikecoke.PanMachine
 {
-    [SerializeField]
-    private Toggle toggle;
-    private void Update()
+    /// <summary>
+    /// Handles BGM enabler disabler.
+    /// </summary>
+    public class SoundFiend : MonoBehaviour
     {
-        if (GameSystem.Instance)
+        [SerializeField]
+        private Toggle toggle;
+        private void Update()
         {
-            toggle.SetIsOnWithoutNotify(GameSystem.Instance.bgm.mute);
+            if (GameSystem.Instance)
+            {
+                toggle.SetIsOnWithoutNotify(GameSystem.Instance.bgm.mute);
+            }
         }
-    }
 
-    public void Flick()
-    {
-        if (GameSystem.Instance)
+        public void Flick()
         {
-            GameSystem.Instance.bgm.mute = !GameSystem.Instance.bgm.mute;
+            if (GameSystem.Instance)
+            {
+                GameSystem.Instance.bgm.mute = !GameSystem.Instance.bgm.mute;
+            }
         }
     }
 }
