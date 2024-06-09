@@ -10,29 +10,15 @@ namespace tastelikecoke.PanMachine
     /// </summary>
     public class MainMenu : MonoBehaviour
     {
+        [SerializeField]
+        private Loader loader;
+
         /// <summary>
         /// Show the main game scene next
         /// </summary>
         public void StartGame()
         {
-            SceneManager.LoadScene("Main");
-
-            // Loader is ugly and unnecessary
-
-            /*
-            StartCoroutine(StartGameCR());
-        }
-        public IEnumerator StartGameCR()
-        {
-            GetComponent<Canvas>().enabled = true;
-            DontDestroyOnLoad(gameObject);
-            AsyncOperation operation = SceneManager.LoadSceneAsync("Main");
-            GetComponent<Animator>().SetTrigger("Start");
-            yield return new WaitUntil(() => operation.isDone);
-            GetComponent<Animator>().SetTrigger("End");
-            yield return new WaitForSeconds(0.5f);
-            Destroy(gameObject);
-            */
+            loader.Load();
         }
 
         private void Update()
