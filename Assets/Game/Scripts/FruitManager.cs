@@ -88,8 +88,8 @@ namespace tastelikecoke.PanMachine
         public bool dontFallFirst = false;
         public bool isUploadedAlready = false;
         public Texture2D screenshot = null;
-
-
+        public Action<int> OnScoreChanged;
+        
         private void Start()
         {
             buildNumberText.text = Application.version;
@@ -100,6 +100,8 @@ namespace tastelikecoke.PanMachine
         public void Retry()
         {
             totalScore = 0;
+            OnScoreChanged?.Invoke(totalScore);
+
             isUploadedAlready = false;
             dontFallFirst = true;
             isFailed = false;
@@ -218,6 +220,8 @@ namespace tastelikecoke.PanMachine
             yield return new WaitForSeconds(1f / 12f);
 
             totalScore += fruit1.level * (fruit1.level + 1) / 2;
+            OnScoreChanged.Invoke(totalScore);
+            
             var spawningFruit = fruitList[fruit1.level];
             if (fruit1.level + 1 == 6)
             {

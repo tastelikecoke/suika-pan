@@ -2265,7 +2265,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -662, y: 0}
+  m_AnchoredPosition: {x: -661.99994, y: 0}
   m_SizeDelta: {x: -1324.0001, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &228614684
@@ -2773,7 +2773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8b35280bf5bc746a7ec6fafc0cf4e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fruitRoot: {fileID: 323314689}
 --- !u!1 &324216920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3198,7 +3197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 346201869}
-  _fruitManager: {fileID: 323314690}
+  fruitManager: {fileID: 323314690}
 --- !u!114 &346201869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13829,7 +13828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1692550756}
-  _fruitManager: {fileID: 323314690}
+  fruitManager: {fileID: 323314690}
 --- !u!1 &1703799848
 GameObject:
   m_ObjectHideFlags: 0
@@ -14986,7 +14985,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -1138.6, y: 0}
+  m_AnchoredPosition: {x: -1138.6001, y: 0}
   m_SizeDelta: {x: 356.99, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1864512037

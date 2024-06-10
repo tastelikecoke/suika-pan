@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,11 +14,21 @@ namespace tastelikecoke.PanMachine
         [SerializeField]
         private TMP_Text score;
         [SerializeField]
-        private FruitManager _fruitManager;
+        private FruitManager fruitManager;
 
-        public void Update()
+        public void Start()
         {
-            score.text = _fruitManager.totalScore.ToString();
+            OnScoreChanged(fruitManager.totalScore);
+            fruitManager.OnScoreChanged += OnScoreChanged;
+        }
+        public void OnDestroy()
+        {
+            fruitManager.OnScoreChanged -= OnScoreChanged;
+        }
+
+        public void OnScoreChanged(int totalScore)
+        {
+            score.text = totalScore.ToString();
         }
     }
 }
