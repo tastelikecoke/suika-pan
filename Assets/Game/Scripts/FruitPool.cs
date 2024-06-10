@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace tastelikecoke.PanMachine
 {
+    /// <summary>
+    /// Adds object pooling to fruit spawning.
+    /// Upon testing, GC spikes didn't really improve that much.
+    /// </summary>
     public class FruitPool : MonoBehaviour
     {
         [SerializeField]
