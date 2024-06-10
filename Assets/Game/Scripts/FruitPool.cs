@@ -28,7 +28,6 @@ namespace tastelikecoke.PanMachine
                 fruitPool = new Dictionary<string, List<Fruit>>();
             
             var fruitScript = fruitObject.GetComponent<Fruit>();
-            Debug.Log($"Spawning Item{fruitScript.fruitID}");
             if (!fruitPool.ContainsKey(fruitScript.fruitID))
             {
                 fruitPool.Add(fruitScript.fruitID, new List<Fruit>());
