@@ -34,4 +34,12 @@ Juan Montoreano - juan@remolacha.biz (Font: Lilita) - Font from Google
 
 proyecto26 (RestClient) - Leaderboards
 
-Google Firebase - Leaderboards 
+Google Firebase - Leaderboards
+
+# Usage
+
+### Firebase System
+
+The game uses Firebase realtime database with plain REST API.
+
+Unity Firebase Client is difficult to work with in WebGL due to cross domain problems, that's why I used REST API.
