@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace tastelikecoke.PanMachine
 {
@@ -11,7 +12,11 @@ namespace tastelikecoke.PanMachine
     public class GameSystem : MonoBehaviour
     {
         public List<int> localScores;
-        public AudioSource bgm;
+        
+        public AudioMixerSnapshot unmuteSnapshot;
+        public AudioMixerSnapshot muteSnapshot;
+        public bool isMute = false;
+        public Action OnMuteChanged;
 
         /// <summary> original name is from Dragoon Drop release </summary>
         public const string SaveFileForLocalRankingKey = "dragoon_drop_save_file_for_local_ranking";

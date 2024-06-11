@@ -14,7 +14,20 @@ namespace tastelikecoke.PanMachine
         {
             if (GameSystem.Instance)
             {
-                toggle.SetIsOnWithoutNotify(GameSystem.Instance.bgm.mute);
+                toggle.SetIsOnWithoutNotify(GameSystem.Instance.isMute);
+                GameSystem.Instance.OnMuteChanged += OnMuteChanged;
+            }
+        }
+
+        public void OnMuteChanged()
+        {
+            if (GameSystem.Instance)
+            {
+                toggle.SetIsOnWithoutNotify(GameSystem.Instance.isMute);
+                if(GameSystem.Instance.isMute)
+                    GameSystem.Instance.muteSnapshot.TransitionTo(0.5f);
+                else
+                    GameSystem.Instance.unmuteSnapshot.TransitionTo(0.5f);
             }
         }
 
@@ -22,7 +35,11 @@ namespace tastelikecoke.PanMachine
         {
             if (GameSystem.Instance)
             {
-                GameSystem.Instance.bgm.mute = !GameSystem.Instance.bgm.mute;
+                GameSystem.Instance.isMute = !GameSystem.Instance.isMute;
+                if(GameSystem.Instance.isMute)
+                    GameSystem.Instance.muteSnapshot.TransitionTo(0.5f);
+                else
+                    GameSystem.Instance.unmuteSnapshot.TransitionTo(0.5f);
             }
         }
     }

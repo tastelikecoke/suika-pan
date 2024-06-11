@@ -116,7 +116,8 @@ namespace tastelikecoke.PanMachine
 
             if (Input.GetButtonDown("Fire2") && GameSystem.Instance != null)
             {
-                GameSystem.Instance.bgm.mute = !GameSystem.Instance.bgm.mute;
+                GameSystem.Instance.isMute = !GameSystem.Instance.isMute;
+                GameSystem.Instance.OnMuteChanged?.Invoke();
             }
 
             if (Input.GetButtonDown("Cancel") && !pauseMenu.GetComponent<Canvas>().enabled && !fruitManager.retryMenu.GetComponent<Canvas>().enabled)

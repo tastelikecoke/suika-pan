@@ -2589,7 +2589,7 @@ AudioSource:
   m_GameObject: {fileID: 314925640}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: f5de55cd57c63b142b5f8930e51c98d2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -4021,7 +4021,7 @@ AudioSource:
   m_GameObject: {fileID: 441295219}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2b300e86e5122294bb369a975e311a78, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.75
@@ -4288,7 +4288,7 @@ AudioSource:
   m_GameObject: {fileID: 489368328}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: e91bad8a01a3d434f952310d3a887678, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -5259,7 +5259,7 @@ AudioSource:
   m_GameObject: {fileID: 711285008}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1f78f40502167db49a01dbd0579fa943, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -8515,7 +8515,7 @@ AudioSource:
   m_GameObject: {fileID: 1067211049}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 78bbe1e170300cc4a8862fa2cf880313, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.75
@@ -8633,6 +8633,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localScores: 
   bgm: {fileID: 1390973689}
+  unmuteSnapshot: {fileID: 24500006, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
+  muteSnapshot: {fileID: 2297654183569956926, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
 --- !u!4 &1090514963
 Transform:
   m_ObjectHideFlags: 0
@@ -8690,7 +8692,7 @@ AudioSource:
   m_GameObject: {fileID: 1113130152}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 381d8d97472192a4b87099f3f52e62b5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -11307,7 +11309,7 @@ AudioSource:
   m_GameObject: {fileID: 1390973687}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1452651638823760145, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: e10c6df4da6015a41ae3c5614961c7bc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
@@ -13005,7 +13007,7 @@ AudioSource:
   m_GameObject: {fileID: 1657213415}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 933733d95dda43943ac374733a928723, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.75
@@ -13870,7 +13872,7 @@ AudioSource:
   m_GameObject: {fileID: 1703799848}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6148024835371594494300ea23979818, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.75
@@ -14779,7 +14781,7 @@ AudioSource:
   m_GameObject: {fileID: 1823602088}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7605079037876879650, guid: 59f791bb615c24b468ba3a6f0ef81fe0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8da542605b4b650419e0646ce34f4362, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
