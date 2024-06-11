@@ -101,7 +101,11 @@ namespace tastelikecoke.PanMachine
         private void Update()
         {
             // do not execute if on retry.
-            if (fruitManager.isFailed) return;
+            if (fruitManager.isFailed)
+            {
+                _isPointerClicked = false;
+                return;
+            }
             
             if (fruitManager.dontFallFirst) return;
 
