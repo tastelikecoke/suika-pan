@@ -1,6 +1,21 @@
 # suika-pan (aka Pan Machine)
 
-Released on itch.io as [Pan Machine](https://baguettech.itch.io/panmachine). Merge panmates into a bigger panmate! Combine them together to form Baguette!
+Merge panmates into a bigger panmate! Combine them together to form Baguette!
+
+[Play now on itch.io](https://baguettech.itch.io/panmachine)
+
+# Controls
+
+### Keyboard
+
+`Arrow Keys`: Move Claw | `Space`: Drop  | `LAlt`: Sound | `Esc`: Pause
+
+### Mouse
+`Mouse`: Move Claw | `Left Click`: Drop
+
+### Controller
+`D-pad`: Move Claw | `Joystick` : Move Claw | `A` : Drop | `B`: Pause
+
 
 # Credits
 
